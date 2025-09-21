@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ site_title|default:"My Portfolio" }}</title>
+
+  <!-- Google Font: Chemistry-style narrow sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#about">Life Moto</a></li>
+      </ul>
+    </nav>
+    
+    <h1>
+      <div class='name-wrapper'>
+        <img src="{% static 'images/profile.jpg' %}" alt="Profile Image" class="profile-pic">
+
+        <div class="bb-name">
+          <div class='name-line'><span class="element s"><span class="symbol">S</span><span class="number">16</span><span class="label">Sulfur</span></span><span class="rest">antosh</span>
+          </div>
+
+          <div class='name-line element-line'><span class="element ra"><span class="symbol">Ra</span><span class="number">88</span><span class="label">Radium</span></span><span class="rest">jbhandari</span>
+          </div>
+  
+        </div>
+      </div>
+</h1>
+    
+  </header>
+
+  <!-- Work Experience -->
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="cards">
+      {% for exp in experiences %}
+      <div class="card">
+        <h3>{{ exp.title }}</h3>
+        <p><strong>{{ exp.company }}</strong> — {{ exp.period }}</p>
+        <p>{{ exp.description }}</p>
+      </div>
+      {% empty %}
+      <p>No experiences added yet.</p>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="cards">
+      {% for project in projects %}
+      <div class="card">
+        <h3>{{ project.name }}</h3>
+        <p>{{ project.summary }}</p>
+        {% if project.link %}
+          <a href="{{ project.link }}" target="_blank">View Project</a>
+        {% endif %}
+      </div>
+      {% empty %}
+      <p>No projects added yet.</p>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- About / Other Details -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul class="skills-list">
+      {% for skill in skills %}
+        <li>{{ skill.name }}</li>
+      {% empty %}
+        <li>No skills added yet.</li>
+      {% endfor %}
+    </ul>
+  </section>
+  <section id="about">
+    <h2>Life Moto</h2>
+    <p>{{ about|default:"The greatness of a mind is determined by the depth of suffering." }}</p>
+  </section>
+
+  <footer>
+    &copy; {{ now|date:"Y" }} {{ name|default:"Santosh K. Rajbhandari" }} – All Rights Reserved
+  </footer>
+</body>
+</html>
