@@ -217,3 +217,35 @@ body {
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
 }
+
+/* Contact*/
+#contact {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.contact-links a {
+  color: #fff;          /* or your theme color */
+  text-decoration: none;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.2s;
+}
+
+.contact-links a:hover {
+  transform: scale(1.1);
+}
+.contact-links img {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
