@@ -80,7 +80,7 @@
       color: var(--bb-accent);
       text-decoration: none;
     }
- 
+
     /* Page background & layout */
 body {
   background: #0d1d0f;            /* dark green/black like Breaking Bad */
@@ -92,13 +92,16 @@ body {
 /* Overall name container */
 .bb-name {
   color: #fff;
-  font-family: 'Heart Bearking bad', cursive;
+  font-family: 'Heart Bearking bad';
   font-size: 3rem;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
   max-width: fit-content;
+  word-wrap: break-word;          /* allow wrapping */
+  overflow-wrap: break-word;
 }
+
 
 /* Periodic-table element box */
 .element {
@@ -165,7 +168,8 @@ body {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: inline-flex;
+  display: flex;
+  justify-content: center;
   gap: 2rem;
 }
 
@@ -189,12 +193,12 @@ body {
 }
 
 .profile-pic {
-    position: absolute;
+    position: unset;
     opacity: 0.6;
     top: 0;
     left: 2rem;
-    width: 15rem;
-    height: 20rem;
+    width: 10rem;
+    height: 15rem;
     border-radius: 50%;
     object-fit: cover;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
@@ -248,4 +252,30 @@ body {
   width: 20px;
   height: 20px;
   vertical-align: middle;
+}
+
+@media (max-width: 600px) {
+  /* Shift the whole name wrapper to the left */
+  .name-wrapper {
+    text-align: left;
+    margin-left: 1rem;          /* a little gap from screen edge */
+  }
+
+  /* Stop the child from centering itself */
+  .bb-name {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%;
+    text-align: left;
+  }
+
+  /* Each line inside should also align left */
+  .name-line {
+    justify-content: flex-start;
+  }
+
+  /* The second line’s huge left padding is a problem */
+  .element-line {
+    padding-left: 3rem           /* REMOVE the 16rem that forces it to the right */
+  }
 }
