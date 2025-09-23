@@ -119,7 +119,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / "static"]   # if you keep a /static/ folder at project root
 DEBUG = os.environ.get("DEBUG", "False") == "True"
 ALLOWED_HOSTS = ['*']
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 
 
