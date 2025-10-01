@@ -122,7 +122,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'   # if you keep a /static/ folder at project root
 DEBUG = os.environ.get("DEBUG", "False") == "True"
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['santosh-portfolio-1pdb.onrender.com']
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
