@@ -1,4 +1,5 @@
-myvenv/
-*.pyc
 __pycache__/
+myenv/
 .env
+db.sqlite3
+static/
