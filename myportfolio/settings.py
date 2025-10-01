@@ -122,7 +122,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'   # if you keep a /static/ folder at project root
 DEBUG = os.environ.get("DEBUG", "False") == "True"
-ALLOWED_HOSTS = ['myportfolio.onrender.com']
+ALLOWED_HOSTS = ['portfolioapp.onrender.com']
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
